@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                           child: ListView(
                         children: List.generate(5, (index) {
                           return ListTile(
-                            
+                        contentPadding: const EdgeInsets.all(0), 
                             title: const Text('Todo title'),
                             subtitle: const Text('Todo time'),
                             leading: const CircleAvatar(
@@ -50,17 +50,16 @@ class _HomePageState extends State<HomePage> {
                               
                                   icon: const Icon(Icons.delete)),
                             );
-            
-                        }),
-                      )),
+                         }
+                        ),
+                      )
+                     ),
                     ],
                   ),
                 ),
               )
             ],
           ),
-        
-        
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.orangeAccent,
           onPressed: () {
