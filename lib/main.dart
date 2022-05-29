@@ -4,6 +4,7 @@ import 'package:graphql_provider/Providers/add_task_provider.dart';
 import 'package:provider/provider.dart';
 import './Screens/home_page.dart';
 import './Providers/add_task_provider.dart';
+import './Providers/get_task_provider.dart';
 
 void main() async {
 await initHiveForFlutter();
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ ChangeNotifierProvider(create: (_) => AddTaskProvider()),
+                  ChangeNotifierProvider(create: (_) => GetTaskProvider()),
       ],
      child:  const MaterialApp(
      debugShowCheckedModeBanner: false,
