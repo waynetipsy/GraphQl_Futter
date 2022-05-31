@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:graphql_provider/Providers/add_task_provider.dart';
-import 'package:provider/provider.dart';
-import './Screens/home_page.dart';
 import './Providers/add_task_provider.dart';
 import './Providers/get_task_provider.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:provider/provider.dart';
+
+import './Providers/delete_task_provider.dart';
+import 'Screens/home_page.dart';
+
 
 void main() async {
 await initHiveForFlutter();
@@ -17,9 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ ChangeNotifierProvider(create: (_) => AddTaskProvider()),
-                  ChangeNotifierProvider(create: (_) => GetTaskProvider()),
-      ],
+      providers: [
+          ChangeNotifierProvider(create: (_) => AddTaskProvider()),
+          ChangeNotifierProvider(create: (_) => GetTaskProvider()),
+          ChangeNotifierProvider(create: (_) => DeleteTaskProvider()),
+        ],
      child:  const MaterialApp(
      debugShowCheckedModeBanner: false,
         home: HomePage(),
